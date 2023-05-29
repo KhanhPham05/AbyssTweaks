@@ -1,36 +1,51 @@
-modLoader="javafml"
-loaderVersion="[43,)"
-license="All rights reserved"
+modLoader = "javafml"
+loaderVersion = "[43,)"
+license = "All rights reserved"
 [[mods]]
-modId="abysstweaks"
-version="${file.jarVersion}"
-displayName="Example Mod"
+modId = "abysstweaks"
+version = "${file.jarVersion}"
+displayName = "Example Mod"
 #updateJSONURL="https://change.me.example.invalid/updates.json"
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
 #logoFile="examplemod.png"
-credits="Original Author - Y4ZON"
-authors="KhanhTypo"
+credits = "Original Author - Y4ZON"
+authors = "KhanhTypo"
 
-description='''
+description = '''
 '''
 
 [[dependencies.abysstweaks]] #optional
-    modId="forge" #mandatory
-    mandatory=true #mandatory
-    versionRange="[43.2,)" #mandatory
-    ordering="NONE"
-    side="BOTH"
+modId = "forge" #mandatory
+mandatory = true #mandatory
+versionRange = "[43.2,)" #mandatory
+ordering = "NONE"
+side = "BOTH"
 
 [[dependencies.abysstweaks]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.19.2]"
-    ordering="NONE"
-    side="BOTH"
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.2]"
+ordering = "NONE"
+side = "BOTH"
 
 [[dependencies.abysstweaks]]
-    modId="theabyss"
-    mandatory=true
-    versionRange="[3.0.0]"
-    ordering="NONE"
-    side="BOTH"
+modId = "theabyss"
+mandatory = true
+versionRange = "[3.0.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.abysstweaks]]
+modId = "geckolib3"
+mandatory = true
+versionRange = "[1.19-3.1.40,)"
+ordering = "NONE"
+side = "BOTH"
+
+
+[[dependencies.abysstweaks]]
+modId = "crafttweaker"
+mandatory = false
+versionRange = "[1.19.2-10.1.41,)"
+ordering = "NONE"
+side = "BOTH"

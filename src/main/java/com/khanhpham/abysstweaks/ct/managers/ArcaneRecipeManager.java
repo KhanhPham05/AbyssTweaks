@@ -7,8 +7,8 @@ import com.blamejared.crafttweaker.api.annotation.ZenRegister;
 import com.blamejared.crafttweaker.api.ingredient.IIngredient;
 import com.blamejared.crafttweaker.api.item.IItemStack;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
-import com.google.common.base.Preconditions;
 import com.khanhpham.abysstweaks.AbyssTweaks;
+import com.khanhpham.abysstweaks.ModUtils;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
@@ -47,7 +47,7 @@ public enum ArcaneRecipeManager implements IRecipeManager<Recipe<Container>> {
 
     @ZenCodeType.Method
     public void addTwoIngredientsRecipe(String recipeName, IItemStack result, IIngredient[] ingredients, IIngredient center, @ZenCodeType.OptionalBoolean(true) boolean createMirror) {
-        Preconditions.checkArgument(ingredients.length == 2, "Array must have 2 ingredients, but found : ", ingredients.length);
+        ModUtils.checkArray(ingredients, 2);
         final NonNullList<Ingredient> list = NonNullList.withSize(9, Ingredient.EMPTY);
         final @Nullable NonNullList<Ingredient> mirrorList = createMirror ? NonNullList.withSize(9, Ingredient.EMPTY) : null;
 
@@ -72,7 +72,7 @@ public enum ArcaneRecipeManager implements IRecipeManager<Recipe<Container>> {
 
     @ZenCodeType.Method
     public void addHalfHalfRecipe(String recipeName, IItemStack result, IIngredient[] ingredients, IIngredient core, @ZenCodeType.OptionalBoolean(true) boolean createMirror) {
-        Preconditions.checkArgument(ingredients.length == 2, "Array must have 2 ingredients, but found : ", ingredients.length);
+        ModUtils.checkArray(ingredients, 2);
         final NonNullList<Ingredient> list = NonNullList.withSize(9, Ingredient.EMPTY);
         final @Nullable NonNullList<Ingredient> mirrorList = createMirror ? NonNullList.withSize(9, Ingredient.EMPTY) : null;
         for (int i = 0; i < 8; i++) {

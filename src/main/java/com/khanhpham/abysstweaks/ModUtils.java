@@ -1,13 +1,16 @@
 package com.khanhpham.abysstweaks;
 
+import com.google.common.base.Preconditions;
+
 import java.util.List;
 
-public class NameUtils {
+public class ModUtils {
 
-    private NameUtils() {}
+    private ModUtils() {}
 
     public static final String ARCANE_STATION = "arcaneStation";
     public static final String SOMNIUM_INFUSER = "somniumInfusing";
+    public static final String MAP = "mortarAndPestle";
 
     public static String toArrayString(List<String> strings, boolean ignoreLast) {
         return toArrayString(strings.toArray(String[]::new), ignoreLast);
@@ -22,5 +25,9 @@ public class NameUtils {
         }
 
         return builder.append("]").toString();
+    }
+
+    public static <A> void checkArray(A[] array, int bound) {
+        Preconditions.checkArgument(array.length == bound, "Array must only have %s members, but %s found".formatted(bound, array.length));
     }
 }

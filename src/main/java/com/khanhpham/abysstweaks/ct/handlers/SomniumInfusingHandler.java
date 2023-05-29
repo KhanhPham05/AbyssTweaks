@@ -8,7 +8,7 @@ import com.blamejared.crafttweaker.api.recipe.handler.IRecipeHandler;
 import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker.api.util.IngredientUtil;
 import com.blamejared.crafttweaker.api.util.StringUtil;
-import com.khanhpham.abysstweaks.NameUtils;
+import com.khanhpham.abysstweaks.ModUtils;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
@@ -28,7 +28,7 @@ public class SomniumInfusingHandler implements IRecipeHandler<SomniumInfusingRec
         final Pair<String, String> recipeFormat = getRecipeFormat(recipe);
 
         return String.format("%s.%s(%s, %s, %s, %s);",
-                NameUtils.SOMNIUM_INFUSER,
+                ModUtils.SOMNIUM_INFUSER,
                 recipeFormat.getFirst(),
                 StringUtil.quoteAndEscape(recipe.getId()),
                 IItemStack.of(recipe.getResultItem()).getCommandString(),
@@ -55,16 +55,16 @@ public class SomniumInfusingHandler implements IRecipeHandler<SomniumInfusingRec
 
         final String ingredient1 = ingredients[1];
         if (ingredient0.equals(ingredients[2]) && ingredient1.equals(ingredients[3])) {
-            return Pair.of("addTwoIngredientsRecipe", NameUtils.toArrayString(new String[]{ingredient0, ingredient1}, false));
+            return Pair.of("addTwoIngredientsRecipe", ModUtils.toArrayString(new String[]{ingredient0, ingredient1}, false));
         }
 
         //half-half
         if (ingredient0.equals(ingredient1) && ingredients[2].equals(ingredients[3])) {
-            return Pair.of("addHalfHalfRecipe", NameUtils.toArrayString(new String[]{ingredient0, ingredients[2]}, false));
+            return Pair.of("addHalfHalfRecipe", ModUtils.toArrayString(new String[]{ingredient0, ingredients[2]}, false));
         }
 
         //four ingredients
-        return Pair.of("addRecipe", NameUtils.toArrayString(ingredients, false));
+        return Pair.of("addRecipe", ModUtils.toArrayString(ingredients, false));
     }
 
     private static String[] getIngredientStrings(NonNullList<Ingredient> ingredients) {

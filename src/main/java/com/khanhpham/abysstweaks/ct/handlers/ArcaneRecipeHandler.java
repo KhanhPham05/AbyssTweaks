@@ -9,7 +9,7 @@ import com.blamejared.crafttweaker.api.recipe.manager.base.IRecipeManager;
 import com.blamejared.crafttweaker.api.util.IngredientUtil;
 import com.blamejared.crafttweaker.api.util.ItemStackUtil;
 import com.blamejared.crafttweaker.api.util.StringUtil;
-import com.khanhpham.abysstweaks.NameUtils;
+import com.khanhpham.abysstweaks.ModUtils;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
@@ -29,7 +29,7 @@ public class ArcaneRecipeHandler implements IRecipeHandler<ArcaneStationRecipe> 
         final var pair = this.getMode(recipe);
 
         return String.format("%s.%s(%s, %s, %s, %s);",
-                NameUtils.ARCANE_STATION,
+                ModUtils.ARCANE_STATION,
                 pair.getFirst(),
                 StringUtil.quoteAndEscape(recipe.getId()),
                 ItemStackUtil.getCommandString(recipe.getResultItem()),
@@ -60,7 +60,7 @@ public class ArcaneRecipeHandler implements IRecipeHandler<ArcaneStationRecipe> 
             } else {
                 if (ingredient1.equals(ingredients.get(i))) {
                     if (i == 7) {
-                        return Pair.of("addTwoIngredientsRecipe", NameUtils.toArrayString(List.of(ingredient0, ingredient1), false));
+                        return Pair.of("addTwoIngredientsRecipe", ModUtils.toArrayString(List.of(ingredient0, ingredient1), false));
                     }
                 }
             }
@@ -73,13 +73,13 @@ public class ArcaneRecipeHandler implements IRecipeHandler<ArcaneStationRecipe> 
             } else {
                 if (ingredient4.equals(ingredients.get(i))) {
                     if (i == 7) {
-                        return Pair.of("addHalfHalfRecipe", NameUtils.toArrayString(List.of(ingredient0, ingredient4), false));
+                        return Pair.of("addHalfHalfRecipe", ModUtils.toArrayString(List.of(ingredient0, ingredient4), false));
                     }
                 }
             }
         }
 
-        return Pair.of("addRecipe", NameUtils.toArrayString(ingredients, true));
+        return Pair.of("addRecipe", ModUtils.toArrayString(ingredients, true));
     }
 
     @Override
