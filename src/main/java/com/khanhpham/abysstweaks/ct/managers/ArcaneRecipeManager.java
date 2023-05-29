@@ -104,5 +104,4 @@ public enum ArcaneRecipeManager implements IRecipeManager<Recipe<Container>> {
                     )));
         }
     }
-
 }

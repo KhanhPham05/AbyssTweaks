@@ -22,7 +22,7 @@ import java.util.Optional;
 
 @SuppressWarnings("unused")
 @IRecipeHandler.For(ArcaneStationRecipe.class)
-public class ArcaneRecipeHandlers implements IRecipeHandler<ArcaneStationRecipe> {
+public class ArcaneRecipeHandler implements IRecipeHandler<ArcaneStationRecipe> {
 
     @Override
     public String dumpToCommandString(IRecipeManager<? super ArcaneStationRecipe> manager, ArcaneStationRecipe recipe) {
