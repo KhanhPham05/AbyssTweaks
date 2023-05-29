@@ -13,7 +13,7 @@ plugins {
 
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.0'
+version = '1.0.0'
 group = 'com.khanhtypo.abysstweaks' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'abysstweaks'
 
