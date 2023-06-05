@@ -31,14 +31,23 @@ public enum MortarManager implements IRecipeManager<Recipe<Container>> {
     @ZenCodeType.Method
     public void addTwoIngredientsRecipe(String recipeName, IItemStack result, IIngredient bottle, IIngredient[] ingredients, @ZenCodeType.OptionalBoolean(true) boolean mirror) {
         ModUtils.checkArray(ingredients, 2);
-        addRecipe(recipeName, result, bottle, new IIngredient[]{ingredients[0], ingredients[1], ingredients[0], ingredients[1]});
+        addRecipe(recipeName, result, bottle, new IIngredient[]{ingredients[0], ingredients[1], ingredients[1], ingredients[0]});
         if (mirror)
-            addRecipe(recipeName + "_mirrored", result, bottle, new IIngredient[]{ingredients[1], ingredients[0], ingredients[1], ingredients[0]});
+            addRecipe(recipeName + "_mirrored", result, bottle, new IIngredient[]{ingredients[1], ingredients[0], ingredients[0], ingredients[1]});
     }
 
     @ZenCodeType.Method
     public void addSingleIngredientRecipe(String recipeName, IItemStack result, IIngredient bottle, IIngredient ingredient) {
         addRecipe(recipeName, result, bottle, new IIngredient[]{ingredient, ingredient, ingredient, ingredient});
+    }
+
+    @ZenCodeType.Method
+    public void addSidedIngredientsRecipe(String recipeName, IItemStack result, IIngredient bottle, IIngredient[] ingredient, @ZenCodeType.OptionalBoolean(true) boolean mirror) {
+        ModUtils.checkArray(ingredient, 2);
+        addRecipe(recipeName, result, bottle, new IIngredient[]{ingredient[0], ingredient[1], ingredient[0], ingredient[1]});
+        if (mirror) {
+            addRecipe(recipeName + "_mirrored", result, bottle, new IIngredient[]{ingredient[1], ingredient[0], ingredient[1], ingredient[0]});
+        }
     }
 
     @ZenCodeType.Method

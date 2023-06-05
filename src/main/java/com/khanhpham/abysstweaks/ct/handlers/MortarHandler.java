@@ -51,6 +51,9 @@ public class MortarHandler implements IRecipeHandler<MortarAndPestleRecipe> {
         if (ingredient0.equals(strings[4]) && ingredient1.equals(strings[3]))
             return TriHolder.of("addTwoIngredientsRecipe", ModUtils.toArrayString(new String[]{ingredient0, ingredient1}, false), bottle);
 
+        if (ingredient0.equals(strings[3]) && ingredient1.equals(strings[4])) {
+            return TriHolder.of("addSidedIngredientsRecipe", ModUtils.toArrayString(new String[]{ingredient0, ingredient1}, false), bottle);
+        }
 
         return TriHolder.of("addRecipe", ModUtils.toArrayString(new String[]{strings[0], strings[1], strings[3], strings[4]}, false), bottle);
     }
